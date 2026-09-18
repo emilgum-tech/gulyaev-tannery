@@ -48,6 +48,67 @@
     opacity:.55;
   }
 
+  @media (prefers-reduced-motion: no-preference){
+    :root{scroll-behavior:smooth;}
+  }
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .grid-2 .reveal:nth-child(2),
+  .works .reveal:nth-child(2),
+  .process .reveal:nth-child(2),
+  .contact-grid .reveal:nth-child(2){transition-delay:.08s;}
+  .grid-2 .reveal:nth-child(3),
+  .works .reveal:nth-child(3),
+  .process .reveal:nth-child(3),
+  .contact-grid .reveal:nth-child(3){transition-delay:.16s;}
+  .grid-2 .reveal:nth-child(4),
+  .works .reveal:nth-child(4),
+  .process .reveal:nth-child(4),
+  .contact-grid .reveal:nth-child(4){transition-delay:.24s;}
+
+  /* ---------- hero load-in ---------- */
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(22px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .hero .eyebrow,
+  .hero h1,
+  .hero p.lede,
+  .hero .cta-row{
+    animation:fadeUp .7s ease both;
+  }
+  .hero h1{animation-delay:.08s;}
+  .hero p.lede{animation-delay:.16s;}
+  .hero .cta-row{animation-delay:.24s;}
+
+  /* ---------- motion & tactile interactions ---------- */
+  .btn,.contact-btn,.card,.work,.step,.vk-card{
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .btn:active,.contact-btn:active{transform:scale(.96);}
+  @media (hover:hover){
+    .card:hover,.work:hover{transform:translateY(-5px);border-color:var(--accent);}
+    .contact-btn:hover{transform:translateY(-3px);}
+    .btn-ghost:hover{transform:translateY(-2px);}
+    .step:hover .step-num{color:var(--accent-strong);}
+  }
+  .step .step-num{transition:color .2s ease;}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .hero .eyebrow,.hero h1,.hero p.lede,.hero .cta-row{animation:none;}
+    .btn,.contact-btn,.card,.work,.step,.vk-card{transition:none;}
+  }
+
   /* ---------- header ---------- */
   header.top{
     padding-block:20px;
@@ -332,12 +393,27 @@
   }
 
   @media (max-width:760px){
-    .value{grid-template-columns:1fr;}
+    .wrap{padding-inline:20px;}
+    header.top{padding-block:16px;}
+    .brand-emblem{width:36px;height:36px;}
+    .hero{padding-block:44px 32px;}
+    .hero h1{font-size:clamp(30px,8.5vw,40px);max-width:none;}
+    .hero p.lede{font-size:16px;margin-top:16px;}
+    .cta-row{margin-top:26px;}
+    section{padding-block:44px;}
+    .section-head{margin-bottom:22px;}
+    .value{grid-template-columns:1fr;gap:28px;}
+    .value p{font-size:17px;}
     .value-stat{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:20px;}
     .grid-2{grid-template-columns:1fr;}
-    .works{grid-template-columns:1fr;}
-    .process{grid-template-columns:1fr 1fr;}
-    .contact-grid{grid-template-columns:1fr 1fr;}
+    .card{padding:22px;}
+    .works{grid-template-columns:1fr;gap:16px;}
+    .work img{height:210px;}
+    .work-body{padding:18px;}
+    .process{grid-template-columns:1fr 1fr;gap:22px;}
+    .vk-card{padding:24px;}
+    .contacts h2{font-size:clamp(26px,7.5vw,32px);}
+    .contact-grid{grid-template-columns:1fr 1fr;margin-top:26px;}
   }
   @media (max-width:460px){
     .process{grid-template-columns:1fr;}
@@ -372,27 +448,27 @@
 
 <section id="products">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Что делаю</h2>
       <div class="section-num">01</div>
     </div>
     <div class="grid-2">
-      <div class="card">
+      <div class="card reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M3 11h18M15 14.5h3"/></svg>
         <h3>Кошельки и портмоне</h3>
         <p>Купюрники и портмоне на 2–8 карт, с монетницей или без. Форма и разбивка отделений — под то, что реально носите.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="1.5"/><path d="M4 10h16M8 14h4"/></svg>
         <h3>Картхолдеры</h3>
         <p>Тонкий держатель на 2–6 карт в один слой кожи — почти не чувствуется в кармане, но держит форму годами.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9V7a5 5 0 0 1 10 0v2M4 9h14l1 11H3L4 9Z"/></svg>
         <h3>Сумки и клатчи</h3>
         <p>Небольшие сумки и клатчи плотной кожи, ручная прошивка, фурнитура и цвет — на выбор.</p>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20 14 4l6 2-10 16Z"/><path d="M11 9l6 2"/></svg>
         <h3>Обложки и аксессуары</h3>
         <p>Обложка на паспорт, чехол, подарочный набор — под задачу, с тиснением или росписью, если нужно что-то штучное.</p>
@@ -405,13 +481,13 @@
 
 <section>
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Авторское тиснение и роспись</h2>
       <div class="section-num">02</div>
     </div>
-    <p style="margin:-16px 0 28px;max-width:56ch;font-size:15.5px;line-height:1.6;color:var(--ink-muted);">Не штамп и не принт — ручная гравировка и роспись по натуральной коже. Каждая работа — под конкретного человека и сюжет.</p>
+    <p class="reveal" style="margin:-16px 0 28px;max-width:56ch;font-size:15.5px;line-height:1.6;color:var(--ink-muted);">Не штамп и не принт — ручная гравировка и роспись по натуральной коже. Каждая работа — под конкретного человека и сюжет.</p>
     <div class="works">
-      <div class="work">
+      <div class="work reveal">
         <img src="work-ship.jpg" alt="Обложка на паспорт с гравировкой сторожевого корабля" loading="lazy">
         <div class="work-body">
           <span class="tag">Обложка на паспорт</span>
@@ -419,7 +495,7 @@
           <p>Ручная гравировка судна с полной проработкой светотени — тон в тон с потёртой кожей, для клиента-моряка.</p>
         </div>
       </div>
-      <div class="work">
+      <div class="work reveal">
         <img src="work-fox.jpg" alt="Обложка блокнота с росписью лисы в лотосах" loading="lazy">
         <div class="work-body">
           <span class="tag">Блокнот на заказ</span>
@@ -427,7 +503,7 @@
           <p>Роспись пигментами по светлой коже — акварельный портрет лисы среди цветов, полностью авторский сюжет.</p>
         </div>
       </div>
-      <div class="work">
+      <div class="work reveal">
         <img src="work-bag.jpg" alt="Клатч из кожи с ярким принтом" loading="lazy">
         <div class="work-body">
           <span class="tag">Клатч</span>
@@ -441,27 +517,27 @@
 
 <section>
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Как рождается вещь</h2>
       <div class="section-num">03</div>
     </div>
     <div class="process">
-      <div class="step">
+      <div class="step reveal">
         <span class="step-num">01</span>
         <h3>Консультация</h3>
         <p>Обсуждаем модель, кожу, цвет и сюжет росписи, если она нужна — в переписке, без формы и ожидания.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <span class="step-num">02</span>
         <h3>Кожа и лекало</h3>
         <p>Подбираю кожу и строю выкройку под ваш заказ — серийных шаблонов нет.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <span class="step-num">03</span>
         <h3>Ручная сборка</h3>
         <p>Раскрой, тиснение или роспись при заказе, шорно-седельный шов — всё руками.</p>
       </div>
-      <div class="step">
+      <div class="step reveal">
         <span class="step-num">04</span>
         <h3>Передача</h3>
         <p>Встреча в Калининграде или отправка транспортной компанией в любой город.</p>
@@ -472,8 +548,8 @@
 
 <section>
   <div class="wrap value">
-    <p><strong>Каждое изделие — это один кусок кожи и один мастер</strong>, а не цех и конвейер. Кожа растительного дубления с возрастом темнеет и приобретает патину — вещь становится только лучше на вид.</p>
-    <div class="value-stat">
+    <p class="reveal"><strong>Каждое изделие — это один кусок кожи и один мастер</strong>, а не цех и конвейер. Кожа растительного дубления с возрастом темнеет и приобретает патину — вещь становится только лучше на вид.</p>
+    <div class="value-stat reveal">
       <span class="num">Седельный шов</span>
       <p>Двойная нить прошивает кожу насквозь — если одна нитка перетрётся, шов не разойдётся, в отличие от машинной строчки.</p>
     </div>
@@ -482,7 +558,7 @@
 
 <section>
   <div class="wrap">
-    <div class="vk-card">
+    <div class="vk-card reveal">
       <div>
         <h3>Больше работ и отзывов</h3>
         <p>Фотографии готовых заказов, гравировка и роспись — в группе ВКонтакте и канале в Telegram.</p>
@@ -503,22 +579,22 @@
 
 <section class="contacts">
   <div class="wrap">
-    <h2>Обсудим ваш заказ</h2>
-    <p class="lede">Пишите или звоните напрямую — отвечаю сам, без менеджеров и скриптов.</p>
+    <h2 class="reveal">Обсудим ваш заказ</h2>
+    <p class="lede reveal">Пишите или звоните напрямую — отвечаю сам, без менеджеров и скриптов.</p>
     <div class="contact-grid">
-      <a class="contact-btn" href="tel:+79097808868">
+      <a class="contact-btn reveal" href="tel:+79097808868">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C10.4 21 3 13.6 3 6a2 2 0 0 1 2-2Z"/></svg>
         <span>Позвонить<small>+7 909 780-88-68</small></span>
       </a>
-      <a class="contact-btn" href="https://t.me/AleksandrTannery" target="_blank" rel="noopener">
+      <a class="contact-btn reveal" href="https://t.me/AleksandrTannery" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 4 3 11l6 2.5M21 4l-3.2 16-8-6.5M21 4 9.8 14.2"/></svg>
         <span>Telegram<small>@AleksandrTannery</small></span>
       </a>
-      <a class="contact-btn" href="https://wa.me/79097808868" target="_blank" rel="noopener">
+      <a class="contact-btn reveal" href="https://wa.me/79097808868" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.6-6.7M20 12l-1-4-4 1"/></svg>
         <span>WhatsApp<small>+7 909 780-88-68</small></span>
       </a>
-      <a class="contact-btn" href="https://vk.com/gulyaevtannery" target="_blank" rel="noopener">
+      <a class="contact-btn reveal" href="https://vk.com/gulyaevtannery" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12c0-4.4 0-6.6 1.4-8S9 3 13 3h1"/></svg>
         <span>ВКонтакте<small>группа и отзывы</small></span>
       </a>
@@ -533,3 +609,23 @@
     <span>Частное кожевенное ателье — тиснение, роспись, кожа на заказ</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -10% 0px'});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
