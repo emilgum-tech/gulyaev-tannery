@@ -1,0 +1,535 @@
+<title>Кожевенное ателье А. Гуляева</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#17110a;
+    --bg-elevated:#211708;
+    --bg-elevated-2:#2a1c0c;
+    --ink:#f4e9d8;
+    --ink-muted:#b9a68d;
+    --accent:#c17d3a;
+    --accent-strong:#e2a35c;
+    --line:rgba(244,233,216,.16);
+    --stitch:#c17d3a;
+    --radius:2px;
+    --serif:"PT Serif", Georgia, "Times New Roman", serif;
+    --sans:"Golos Text", "Segoe UI", Arial, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;}
+
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding-inline:24px;
+  }
+
+  h1,h2,h3{
+    font-family:var(--serif);
+    font-weight:700;
+    margin:0;
+    text-wrap:balance;
+  }
+
+  a{color:inherit;}
+
+  .stitch{
+    border-top:2px dashed var(--stitch);
+    opacity:.55;
+  }
+
+  /* ---------- header ---------- */
+  header.top{
+    padding-block:20px;
+    border-bottom:1px solid var(--line);
+  }
+  .top-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-emblem{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+    flex:none;
+  }
+  .mark{
+    font-family:var(--serif);
+    font-size:19px;
+    letter-spacing:.02em;
+  }
+  .mark b{color:var(--accent-strong);}
+  .mark small{
+    display:block;
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-muted);
+    margin-top:2px;
+  }
+  .top-loc{
+    font-size:13px;
+    color:var(--ink-muted);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block:72px 56px;
+    background:
+      radial-gradient(120% 90% at 15% -10%, rgba(193,125,58,.16), transparent 55%),
+      radial-gradient(80% 60% at 100% 0%, rgba(193,125,58,.08), transparent 60%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.08;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--accent-strong);
+  }
+  .hero p.lede{
+    margin-top:22px;
+    max-width:52ch;
+    font-size:17px;
+    line-height:1.6;
+    color:var(--ink-muted);
+  }
+  .cta-row{
+    margin-top:34px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-solid{
+    background:var(--accent);
+    color:#1a1006;
+  }
+  .btn-solid:hover{background:var(--accent-strong);}
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--ink);
+  }
+  .btn-ghost:hover{border-color:var(--accent);}
+  .btn svg{width:17px;height:17px;flex:none;}
+
+  /* ---------- section shell ---------- */
+  section{padding-block:64px;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-bottom:36px;
+  }
+  .section-head h2{font-size:clamp(24px,3.4vw,32px);}
+  .section-num{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--ink-muted);
+    font-size:14px;
+  }
+
+  /* ---------- value strip ---------- */
+  .value{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:48px;
+    align-items:start;
+  }
+  .value p{
+    font-size:19px;
+    line-height:1.65;
+    color:var(--ink-muted);
+    max-width:44ch;
+  }
+  .value p strong{color:var(--ink);font-weight:600;}
+  .value-stat{
+    border-left:1px solid var(--line);
+    padding-left:24px;
+  }
+  .value-stat .num{
+    font-family:var(--serif);
+    font-size:15px;
+    color:var(--accent-strong);
+    display:block;
+    margin-bottom:6px;
+  }
+  .value-stat p{font-size:14px;color:var(--ink-muted);max-width:32ch;}
+
+  /* ---------- products ---------- */
+  .grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .card{
+    background:var(--bg);
+    padding:28px;
+  }
+  .card svg{width:26px;height:26px;color:var(--accent-strong);margin-bottom:16px;}
+  .card h3{font-size:19px;margin-bottom:8px;}
+  .card p{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.55;
+    color:var(--ink-muted);
+  }
+
+  /* ---------- signature works ---------- */
+  .works{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .work{
+    border:1px solid var(--line);
+    background:var(--bg-elevated);
+    overflow:hidden;
+  }
+  .work img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+    border-bottom:1px solid var(--line);
+  }
+  .work-body{padding:22px;}
+  .work .tag{
+    display:block;
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin-bottom:12px;
+  }
+  .work h3{font-size:17px;margin-bottom:8px;}
+  .work p{margin:0;font-size:14px;line-height:1.55;color:var(--ink-muted);}
+
+  /* ---------- process ---------- */
+  .process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:28px;
+  }
+  .step .step-num{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:26px;
+    color:var(--accent);
+    display:block;
+    margin-bottom:10px;
+  }
+  .step h3{font-size:16px;margin-bottom:6px;}
+  .step p{font-size:13.5px;line-height:1.55;color:var(--ink-muted);margin:0;}
+
+  /* ---------- vk callout ---------- */
+  .vk-card{
+    background:var(--bg-elevated);
+    border:1px solid var(--line);
+    padding:32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .vk-card h3{font-size:20px;margin-bottom:6px;}
+  .vk-card p{margin:0;color:var(--ink-muted);font-size:14.5px;max-width:44ch;}
+
+  /* ---------- contacts ---------- */
+  .contacts{
+    background:var(--bg-elevated);
+    border-top:1px solid var(--line);
+  }
+  .contacts h2{font-size:clamp(26px,4vw,36px);max-width:16ch;}
+  .contacts .lede{color:var(--ink-muted);font-size:15.5px;margin-top:14px;max-width:44ch;}
+  .contact-grid{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+  }
+  .contact-btn{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 18px;
+    background:var(--bg-elevated-2);
+    border:1px solid var(--line);
+    text-decoration:none;
+    color:var(--ink);
+    font-size:14.5px;
+    font-weight:600;
+  }
+  .contact-btn:hover{border-color:var(--accent);}
+  .contact-btn svg{width:20px;height:20px;flex:none;color:var(--accent-strong);}
+  .contact-btn span small{
+    display:block;
+    font-weight:400;
+    color:var(--ink-muted);
+    font-size:12px;
+    margin-top:2px;
+  }
+
+  footer{
+    padding-block:26px;
+    border-top:1px solid var(--line);
+  }
+  .foot-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    font-size:13px;
+    color:var(--ink-muted);
+  }
+
+  @media (max-width:760px){
+    .value{grid-template-columns:1fr;}
+    .value-stat{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:20px;}
+    .grid-2{grid-template-columns:1fr;}
+    .works{grid-template-columns:1fr;}
+    .process{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:460px){
+    .process{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+
+<header class="top">
+  <div class="wrap top-row">
+    <div class="brand">
+      <img class="brand-emblem" src="emblem.jpg" alt="Эмблема ателье А. Гуляева">
+      <div class="mark">А. <b>Гуляев</b><small>Private Leather Atelier</small></div>
+    </div>
+    <div class="top-loc">Калининград · кожа ручной работы</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Частное кожевенное ателье</div>
+    <h1>Не просто кошелёк — <em>вещь с вашим рисунком на коже</em></h1>
+    <p class="lede">Кошельки, картхолдеры, сумки и клатчи ручной работы — и авторское тиснение с росписью, если нужна вещь в одном экземпляре. «Делаю мир удобным для вас» — Александр Гуляев.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="https://t.me/AleksandrTannery" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 4 3 11l6 2.5M21 4l-3.2 16-8-6.5M21 4 9.8 14.2"/></svg>
+        Написать в Telegram
+      </a>
+      <a class="btn btn-ghost" href="#products">Что можно заказать</a>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Что делаю</h2>
+      <div class="section-num">01</div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M3 11h18M15 14.5h3"/></svg>
+        <h3>Кошельки и портмоне</h3>
+        <p>Купюрники и портмоне на 2–8 карт, с монетницей или без. Форма и разбивка отделений — под то, что реально носите.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="1.5"/><path d="M4 10h16M8 14h4"/></svg>
+        <h3>Картхолдеры</h3>
+        <p>Тонкий держатель на 2–6 карт в один слой кожи — почти не чувствуется в кармане, но держит форму годами.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9V7a5 5 0 0 1 10 0v2M4 9h14l1 11H3L4 9Z"/></svg>
+        <h3>Сумки и клатчи</h3>
+        <p>Небольшие сумки и клатчи плотной кожи, ручная прошивка, фурнитура и цвет — на выбор.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20 14 4l6 2-10 16Z"/><path d="M11 9l6 2"/></svg>
+        <h3>Обложки и аксессуары</h3>
+        <p>Обложка на паспорт, чехол, подарочный набор — под задачу, с тиснением или росписью, если нужно что-то штучное.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="stitch"></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Авторское тиснение и роспись</h2>
+      <div class="section-num">02</div>
+    </div>
+    <p style="margin:-16px 0 28px;max-width:56ch;font-size:15.5px;line-height:1.6;color:var(--ink-muted);">Не штамп и не принт — ручная гравировка и роспись по натуральной коже. Каждая работа — под конкретного человека и сюжет.</p>
+    <div class="works">
+      <div class="work">
+        <img src="work-ship.jpg" alt="Обложка на паспорт с гравировкой сторожевого корабля" loading="lazy">
+        <div class="work-body">
+          <span class="tag">Обложка на паспорт</span>
+          <h3>«Сторожевой корабль»</h3>
+          <p>Ручная гравировка судна с полной проработкой светотени — тон в тон с потёртой кожей, для клиента-моряка.</p>
+        </div>
+      </div>
+      <div class="work">
+        <img src="work-fox.jpg" alt="Обложка блокнота с росписью лисы в лотосах" loading="lazy">
+        <div class="work-body">
+          <span class="tag">Блокнот на заказ</span>
+          <h3>«Лиса в лотосах»</h3>
+          <p>Роспись пигментами по светлой коже — акварельный портрет лисы среди цветов, полностью авторский сюжет.</p>
+        </div>
+      </div>
+      <div class="work">
+        <img src="work-bag.jpg" alt="Клатч из кожи с ярким принтом" loading="lazy">
+        <div class="work-body">
+          <span class="tag">Клатч</span>
+          <h3>Печатная кожа на заказ</h3>
+          <p>Яркий принт по коже под настроение заказчика — вариант для подарка, когда нужна не гравировка, а цвет.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Как рождается вещь</h2>
+      <div class="section-num">03</div>
+    </div>
+    <div class="process">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Консультация</h3>
+        <p>Обсуждаем модель, кожу, цвет и сюжет росписи, если она нужна — в переписке, без формы и ожидания.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Кожа и лекало</h3>
+        <p>Подбираю кожу и строю выкройку под ваш заказ — серийных шаблонов нет.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Ручная сборка</h3>
+        <p>Раскрой, тиснение или роспись при заказе, шорно-седельный шов — всё руками.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>Передача</h3>
+        <p>Встреча в Калининграде или отправка транспортной компанией в любой город.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap value">
+    <p><strong>Каждое изделие — это один кусок кожи и один мастер</strong>, а не цех и конвейер. Кожа растительного дубления с возрастом темнеет и приобретает патину — вещь становится только лучше на вид.</p>
+    <div class="value-stat">
+      <span class="num">Седельный шов</span>
+      <p>Двойная нить прошивает кожу насквозь — если одна нитка перетрётся, шов не разойдётся, в отличие от машинной строчки.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="vk-card">
+      <div>
+        <h3>Больше работ и отзывов</h3>
+        <p>Фотографии готовых заказов, гравировка и роспись — в группе ВКонтакте и канале в Telegram.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-ghost" href="https://vk.com/gulyaevtannery" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12c0-4.4 0-6.6 1.4-8S9 3 13 3h1"/></svg>
+          VK
+        </a>
+        <a class="btn btn-ghost" href="https://t.me/AVgulyaevtannery" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 4 3 11l6 2.5M21 4l-3.2 16-8-6.5M21 4 9.8 14.2"/></svg>
+          Telegram-канал
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts">
+  <div class="wrap">
+    <h2>Обсудим ваш заказ</h2>
+    <p class="lede">Пишите или звоните напрямую — отвечаю сам, без менеджеров и скриптов.</p>
+    <div class="contact-grid">
+      <a class="contact-btn" href="tel:+79097808868">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2C10.4 21 3 13.6 3 6a2 2 0 0 1 2-2Z"/></svg>
+        <span>Позвонить<small>+7 909 780-88-68</small></span>
+      </a>
+      <a class="contact-btn" href="https://t.me/AleksandrTannery" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 4 3 11l6 2.5M21 4l-3.2 16-8-6.5M21 4 9.8 14.2"/></svg>
+        <span>Telegram<small>@AleksandrTannery</small></span>
+      </a>
+      <a class="contact-btn" href="https://wa.me/79097808868" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12a8 8 0 1 1-3.6-6.7M20 12l-1-4-4 1"/></svg>
+        <span>WhatsApp<small>+7 909 780-88-68</small></span>
+      </a>
+      <a class="contact-btn" href="https://vk.com/gulyaevtannery" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12c0-4.4 0-6.6 1.4-8S9 3 13 3h1"/></svg>
+        <span>ВКонтакте<small>группа и отзывы</small></span>
+      </a>
+    </div>
+    <p style="margin-top:22px;font-size:13.5px;color:var(--ink-muted);">Мастерская: Калининград, Московский проспект, 40, 1 этаж, павильон 124</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>А. Гуляев · Калининград</span>
+    <span>Частное кожевенное ателье — тиснение, роспись, кожа на заказ</span>
+  </div>
+</footer>
